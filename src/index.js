@@ -26,25 +26,35 @@ export default class App extends Component {
         </TouchableOpacity>
         <Modal isVisible={this.state.isModalVisible}>
           <View style={styles.modalContent}>
-            <Image style={{width: this.state.width, height: this.state.height}} resizeMode={Image.resizeMode.cover} source={{uri: this.state.imgsrc}} />
-            <Text>{this.state.title}</Text>
-            <Text>{this.state.price}</Text>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderWidth: 1, borderRadius: 2}}
-              keyboardType={'numeric'}
-            />
+            <View style={styles.modalProductTitle}>
+              <Image style={{width: this.state.width, height: this.state.height}} resizeMode={Image.resizeMode.cover} source={{uri: this.state.imgsrc}} />
+            </View>  
+            <Text style={{marginBottom: 16}}>{this.state.title}</Text>
+            <View style={styles.actionRow}>
+              <Text style={{marginRight: 8}}>Price</Text>
+              <Text style={{fontWeight: 'bold'}}>{this.state.price}</Text>
+            </View>
+            <View style={styles.actionRow}>
+              <Text>Alert me when price is lower than</Text>  
+              <TextInput
+                style={styles.modalInput}
+                keyboardType={'numeric'}
+              />
+            </View>   
 
-            <TouchableOpacity onPress={this._hideModal}>
-              <View style={styles.modalButton}>
-                <Text>Confirm</Text>
-              </View>
-            </TouchableOpacity>
+            <View style={styles.actionRow}>
+              <TouchableOpacity onPress={this._hideModal}>
+                <View style={[styles.modalButton, {marginRight: 8}]}>
+                  <Text>Confirm</Text>
+                </View>
+              </TouchableOpacity>
 
-            <TouchableOpacity onPress={this._hideModal}>
-              <View style={styles.modalButton}>
-                <Text>Cancel</Text>
-              </View>
-            </TouchableOpacity>
+              <TouchableOpacity onPress={this._hideModal}>
+                <View style={styles.modalButton}>
+                  <Text>Cancel</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
 
           </View>
         </Modal>
@@ -56,30 +66,47 @@ export default class App extends Component {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'white',
-    marginTop: 20,
-  },
-  modalContent: {
-    backgroundColor: 'white',
-    padding: 22,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
-    borderWidth: 1,
-  },
-  modalButton: {
-    backgroundColor: 'lightblue',
-    padding: 12,
-    margin: 16,
-    height: 40,
-    width: 120,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
-  }
+    flex: 1,
+    backgroundColor: 'white',
+    marginTop: 20,
+  },
+  actionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 4,
+    paddingBottom: 10
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 22,
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+    borderWidth: 1,
+  },
+  modalButton: {
+    backgroundColor: 'lightblue',
+    padding: 12,
+    height: 40,
+    width: 120,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  modalProductTitle: {
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginBottom: 8,
+  },
+  modalInput: {
+    flex: 1, 
+    marginLeft: 8, 
+    height: 40, 
+    borderColor: 'transparent', 
+    backgroundColor: '#f3f3f3', 
+    borderWidth: 1, 
+    borderRadius: 2,
+  }
 });
 
 
