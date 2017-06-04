@@ -26,23 +26,20 @@ export default class App extends Component {
         </TouchableOpacity>
         <Modal isVisible={this.state.isModalVisible}>
           <View style={styles.modalContent}>
-            <View style={{justifyContent: 'center', alignItems: 'center', marginBottom: 8}}>
+            <View style={styles.modalImage}>
               <Image style={{width: this.state.width, height: this.state.height}} resizeMode={Image.resizeMode.cover} source={{uri: this.state.imgsrc}} />
             </View>
             <Text style={{marginBottom: 16}}>{this.state.title}</Text>
 
-            <View style={styles.actionRow}>
+            <View style={styles.modalRow}>
               <Text style={{marginRight: 8}}>Price</Text>
               <Text style={{fontWeight: 'bold'}}>{this.state.price}</Text>
             </View>
-            <View style={styles.actionRow}>
+            <View style={styles.modalRow}>
               <Text>Alert me when price is lower than</Text>
-              <TextInput
-                style={{paddingLeft: 8, marginLeft: 8, height: 40, flex: 1, borderColor: 'transparent', backgroundColor: '#f3f3f3', borderWidth: 1, borderRadius: 2}}
-                keyboardType={'numeric'}
-              />
+              <TextInput style={styles.modalInput} keyboardType={'numeric'}/>
             </View>
-            <View style={styles.actionRow}>
+            <View style={styles.modalRow}>
 
               <TouchableOpacity onPress={this._hideModal}>
                 <View style={[styles.modalButton, {marginRight: 8}]}>
@@ -73,7 +70,12 @@ var styles = StyleSheet.create({
     marginTop: 20,
 
   },
-  actionRow: {
+  modalImage: {
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginBottom: 8
+  },
+  modalRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingTop: 4,
@@ -94,7 +96,17 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 4,
     borderColor: 'rgba(0, 0, 0, 0.1)',
-  }
+  },
+  modalInput: {
+    flex: 1, 
+    marginLeft: 8, 
+    height: 40, 
+    paddingLeft: 8,
+    borderColor: 'transparent', 
+    backgroundColor: '#f3f3f3', 
+    borderWidth: 1, 
+    borderRadius: 2
+  },
 });
 
 
