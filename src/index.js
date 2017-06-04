@@ -37,20 +37,17 @@ export default class App extends Component {
             </View>
             <View style={styles.modalRow}>
               <Text>Alert me when price is lower than</Text>
-              <TextInput
-                style={styles.modalInput}
-                keyboardType={'numeric'}
-              />
+              <TextInput style={styles.modalInput} keyboardType={'numeric'}/>
             </View>
             <View style={styles.modalRow}>
 
-              <TouchableOpacity onPress={this._hideModal}>
+              <TouchableOpacity style={{flex: 1}} onPress={this._hideModal}>
                 <View style={[styles.modalButton, {marginRight: 8}]}>
                   <Text>Confirm</Text>
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={this._hideModal}>
+              <TouchableOpacity style={{flex: 1}} onPress={this._hideModal}>
                 <View style={styles.modalButton}>
                   <Text>Cancel</Text>
                 </View>
@@ -93,9 +90,8 @@ var styles = StyleSheet.create({
   },
   modalButton: {
     backgroundColor: 'lightblue',
-    padding: 12,
+    padding: 18,
     height: 40,
-    width: 120,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
@@ -105,6 +101,7 @@ var styles = StyleSheet.create({
     flex: 1, 
     marginLeft: 8, 
     height: 40, 
+    paddingLeft: 8,
     borderColor: 'transparent', 
     backgroundColor: '#f3f3f3', 
     borderWidth: 1, 
