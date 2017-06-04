@@ -41,13 +41,13 @@ export default class App extends Component {
             </View>
             <View style={styles.modalRow}>
 
-              <TouchableOpacity onPress={this._hideModal}>
+              <TouchableOpacity style={{flex: 1}} onPress={this._hideModal}>
                 <View style={[styles.modalButton, {marginRight: 8}]}>
                   <Text>Confirm</Text>
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={this._hideModal}>
+              <TouchableOpacity style={{flex: 1}} onPress={this._hideModal}>
                 <View style={styles.modalButton}>
                   <Text>Cancel</Text>
                 </View>
