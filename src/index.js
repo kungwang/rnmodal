@@ -38,7 +38,7 @@ export default class App extends Component {
             <View style={styles.actionRow}>
               <Text>Alert me when price is lower than</Text>
               <TextInput
-                style={{marginLeft: 8, height: 40, flex: 1, borderColor: 'transparent', backgroundColor: '#f3f3f3', borderWidth: 1, borderRadius: 2}}
+                style={{paddingLeft: 8, marginLeft: 8, height: 40, flex: 1, borderColor: 'transparent', backgroundColor: '#f3f3f3', borderWidth: 1, borderRadius: 2}}
                 keyboardType={'numeric'}
               />
             </View>
@@ -88,9 +88,8 @@ var styles = StyleSheet.create({
   },
   modalButton: {
     backgroundColor: 'lightblue',
-    padding: 12,
+    padding: 18,
     height: 40,
-    width: 120,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
